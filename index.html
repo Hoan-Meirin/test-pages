@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山西省行政区划图</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<!-- 这是头部导航栏的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/nav.css">
+    <!-- 这是首页的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/mainimg.css">
+    <!-- 这是角色页面的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/character.css">
+    <!-- 这是单曲页面的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/music.css">
+    <!-- 这是故事页面的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/story.css">
+    <!-- 这是readme页面的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/news.css">
+    <!-- 这是落款页面的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/inscribe.css">
+    <!-- 这里是所有按钮的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/button.css">
+    <!-- 这是评论区的css -->
+    <link rel="stylesheet" type="text/css" href="CSS/review.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        #map {
+            width: 100%;
+            height: 100vh;
+        }
+        .info {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+        .legend {
+            line-height: 18px;
+            color: #555;
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+
+<body>
+	<!-- readme -->
+    <div class="news">
+        <div class="read">
+            <h1>READ ME — 致亲爱的访客</h1>
+            <ul>
+                <li>1.<strong>欢迎浏览本网页(｡･∀･)ﾉﾞ</strong></li>
+                <li>2.本网页为晋脉智联
+                    <a href="update/update.html" target="_blank">点此查看更新日志</a>
+                </li>
+                <li>3.本网页素材均来源于网络，开发人员：
+                    <a href="https://github.com/Hoan-Meirin" target="_blank">@HoanMeirin</a>
+                </li>
+                <li>4.<strong>请勿在低版本浏览器下浏览本网页，以免出现严重bug</strong></li>
+                <li>5.本网页制作仅供交流学习使用</li>
+                <li>⑨.磅15便士，所以你选择C项</li>
+            </ul>
+            <div class="close"><strong>Let's play the Map</strong></div>
+        </div>
+    </div>
+<div id="map" style="position: relative;">
+    <div id="tooltip" class="tooltip"></div>
+</div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+
+
+	<script>
+        // 这里是首页readme的js，量少，故不单独放在一个文件里
+		// 检查 localStorage 中是否有标记
+    if (!localStorage.getItem('hasVisited')) {
+        // 首次显示 .news
+        document.querySelector('.news').style.display = 'block';
+        // 设置标记表示已访问过
+        localStorage.setItem('hasVisited', 'true');
+    } else {
+        document.querySelector('.news').style.display = 'none';
+    }
+        const clo = document.querySelector('.close');
+        const ne = document.querySelector('.news');
+        clo.addEventListener('click',function(){
+            console.log(ne);
+            ne.style.display = 'none';
+        })
+       
+    </script>
+</body>
+</html>
